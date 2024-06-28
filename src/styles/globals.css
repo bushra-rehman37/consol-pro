@@ -2,32 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+/* Swiper styles */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-custom text-white;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components{
+  .nav-link {
+    @apply relative font-semibold text-white cursor-pointer text-[17px] w-fit md:block after:block after:content-[''] after:absolute after:h-[3px] after:bg-yellow-400 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hidden
   }
+
+  .nav-link-mobile {
+    @apply relative mb-[2rem] font-semibold text-white cursor-pointer text-[27px] w-fit md:block after:block after:content-[''] after:absolute after:h-[3px] after:bg-yellow-400 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center
+  }
+
+  .heading {
+    @apply text-center text-white text-[28px] sm:text-[33px] md:text-[45px] font-bold uppercase
+  
+}
+
+}
+.swiper-button-prev, .swiper-button-next {
+  color: #EDBC5A !important;
+}
+
+.bg-custom::before {
+  content: '';
+  position: absolute;
+  top: -10%; 
+  right: -5%; 
+  width: 35%; 
+  height: 75%; 
+  background: radial-gradient( rgba(237, 188, 90, 0.5) 1%, transparent 70%);
+  pointer-events: none;
+}
+.bg-custom {
+  background: black;
+  position: relative;
+}
+.text-shadow-white {
+  text-shadow: 
+    1px 1px 0px white, 
+    -1px -1px 0px white, 
+    1px -1px 0px white, 
+    -1px 1px 0px white;
 }
