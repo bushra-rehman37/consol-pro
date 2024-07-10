@@ -85,6 +85,10 @@ const Services: React.FC = () => {
             centeredSlides
             navigation
             breakpoints={{
+              300:{
+                slidesPerView: 1,
+                spaceBetween: 85,
+                   },
                 400:{
                     slidesPerView: 1,
                     spaceBetween: 10,
@@ -118,7 +122,7 @@ const Services: React.FC = () => {
           >
             {virtualSlides.map((_slide, i) => (
               <SwiperSlide key={i} virtualIndex={i} onClick={onSlideClick}>
-                <div className="group border border-white h-[410px] w-[275px] flex flex-col justify-between p-4 bg-[#33333]">
+                <div className="group border border-white h-[410px] w-[275px] sm-w-[200px] flex flex-col justify-between p-4 bg-[#33333]">
                   <div>
                     <h3 className="header text-3xl  text-white">{topics[i]}</h3>
                     <p className="text-justify text-lg mt-10 text-white">
